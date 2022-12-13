@@ -52,6 +52,9 @@ variable "rancher_server_admin_password" {
   description = "Admin password to use for Rancher server bootstrap, min. 12 characters"
 }
 
+variable "tags" {
+}
+
 # Local variables used to reduce repetition
 locals {
   node_username = "root"
