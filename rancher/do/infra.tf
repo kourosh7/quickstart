@@ -29,6 +29,7 @@ resource "digitalocean_droplet" "rancher_server" {
   region   = var.do_region
   size     = var.droplet_size
   ssh_keys = [digitalocean_ssh_key.quickstart_ssh_key.fingerprint]
+  tags     = var.tags
 
   provisioner "remote-exec" {
     inline = [
