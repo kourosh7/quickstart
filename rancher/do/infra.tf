@@ -74,7 +74,8 @@ resource "digitalocean_droplet" "quickstart_node" {
   region   = var.do_region
   size     = var.droplet_size
   ssh_keys = [digitalocean_ssh_key.quickstart_ssh_key.fingerprint]
-
+  tags     = [var.tags]
+  
   user_data = templatefile(
     "${path.module}/files/userdata_quickstart_node.template",
     {
