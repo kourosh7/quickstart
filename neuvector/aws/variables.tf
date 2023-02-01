@@ -14,6 +14,7 @@ variable "aws_secret_key" {
 variable "neuvector_admin_password" {
   type        = string
   description = "Admin password for NeuVector"
+  default     = "AI2zSYMFuCZ3HUeyNNMj1urUpCSEfgE0"
 }
 
 variable "install_rancher" {
@@ -68,7 +69,7 @@ variable "kubernetes_version" {
 variable "neuvector_chart_version" {
   type        = string
   description = "NeuVector helm chart version"
-  default     = "2.2.4"
+  default     = "2.4.0"
 }
 
 variable "cert_manager_version" {
@@ -81,6 +82,12 @@ variable "rancher_version" {
   type        = string
   description = "Rancher version"
   default     = "2.7.0"
+}
+
+variable "rancher_helm_repository" {
+  type        = string
+  description = "The helm repository, where the Rancher helm chart is installed from"
+  default     = "https://releases.rancher.com/server-charts/latest"
 }
 
 # Local variables used to reduce repetition
