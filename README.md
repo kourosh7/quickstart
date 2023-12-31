@@ -1,6 +1,6 @@
-# Quickstart examples for the SUSE Rancher product portfolio
+# Quickstart examples for the Rancher by SUSE product portfolio
 
-Quickly stand up an HA-style installation of SUSE Rancher products on your infrastructure provider of choice.
+Quickly stand up an HA-style installation of Rancher by SUSE products on your infrastructure provider of choice.
 
 Intended for experimentation/evaluation ONLY.
 
@@ -18,6 +18,7 @@ Rancher Management Server Quickstarts are provided for:
 - [**Microsoft Azure Cloud** (`azure`)](./rancher/azure)
 - [**DigitalOcean** (`do`)](./rancher/do)
 - [**Google Cloud Platform** (`gcp`)](./rancher/gcp)
+- [**Harvester** (`harvester`)](./rancher/harvester)
 - [**Hetzner Cloud** (`hcloud`)](./rancher/hcloud)
 - [**Linode** (`linode`)](./rancher/linode)
 - [**Scaleway** (`scw`)](./rancher/scw)

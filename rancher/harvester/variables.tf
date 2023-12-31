@@ -1,14 +1,13 @@
-# Variables for Linode infrastructure module
+# Variables for DO infrastructure module
 
-variable "linode_token" {
+variable "kubeconfig_path" {
   type        = string
-  description = "Linode API token used to create infrastructure"
+  description = "Kubeconfig file path to connect to the Harvester cluster"
 }
 
-variable "linode_region" {
+variable "kubecontext" {
   type        = string
-  description = "Linode region used for all resources"
-  default     = "eu-central"
+  description = "Name of the kubernetes context to use to the Harvester cluster"
 }
 
 variable "prefix" {
@@ -17,10 +16,15 @@ variable "prefix" {
   default     = "quickstart"
 }
 
-variable "linode_type" {
+variable "namespace" {
   type        = string
-  description = "Linode type used for all droplets"
-  default     = "g6-standard-2"
+  description = "Harvester namespace to deploy the VMs into"
+  default     = "default"
+}
+
+variable "network_name" {
+  type        = string
+  description = "Name of the Harvester network to deploy the VMs into"
 }
 
 variable "rancher_kubernetes_version" {
@@ -47,13 +51,6 @@ variable "rancher_version" {
   default     = "2.7.9"
 }
 
-variable "rancher_helm_repository" {
-  type        = string
-  description = "The helm repository, where the Rancher helm chart is installed from"
-  default     = "https://releases.rancher.com/server-charts/latest"
-}
-
-# Required
 variable "rancher_server_admin_password" {
   type        = string
   description = "Admin password to use for Rancher server bootstrap, min. 12 characters"
@@ -61,5 +58,11 @@ variable "rancher_server_admin_password" {
 
 # Local variables used to reduce repetition
 locals {
-  node_username = "root"
+  node_username = "ubuntu"
+  cluster_node_command = templatefile(
+    "${path.module}/files/userdata_quickstart_node.template",
+    {
+      register_command = module.rancher_common.custom_cluster_command
+    }
+  )
 }

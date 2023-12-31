@@ -1,8 +1,8 @@
 terraform {
   required_providers {
-    google = {
-      source  = "hashicorp/google"
-      version = "4.24.0"
+    harvester = {
+      source  = "harvester/harvester"
+      version = "0.6.1"
     }
     local = {
       source  = "hashicorp/local"
@@ -16,9 +16,7 @@ terraform {
   required_version = ">= 1.0.0"
 }
 
-provider "google" {
-  credentials = file(var.gcp_account_json)
-  project     = var.gcp_project
-  region      = var.gcp_region
-  zone        = var.gcp_zone
+provider "harvester" {
+  kubeconfig  = var.kubeconfig_path
+  kubecontext = var.kubecontext
 }
