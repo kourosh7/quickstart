@@ -127,6 +127,7 @@ resource "aws_instance" "rancher_server" {
   tags = {
     Name    = "${var.prefix}-rancher-server"
     Creator = "rancher-quickstart"
+    DoNotDelete = "true"
   }
 }
 
